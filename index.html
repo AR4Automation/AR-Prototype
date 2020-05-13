@@ -1,10 +1,55 @@
-<!-- AR4Automation - AR-Prototype -->
-<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
-<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-<body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='sourceType: webcam;'>
-		<a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-		<a-marker-camera preset='hiro'></a-marker-camera>
-	</a-scene>
-</body>
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR4Automation</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!--
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="js/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+    -->
+
+  </head>
+  <body>
+    
+        <button class="navbar-toggler navbar-dark bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <nav class="collapse navbar navbar-dark bg-dark" id="navbarToggleExternalContent">
+          <div id="navbarToggleExternalContent">
+            <h5 class="text-white h4">Testszenarien</h5>
+            <span class="text-muted">Startet AR Szenen</span>
+            
+            <hr class="bg-light">
+
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Anzeige: Aktueller Status (Reinigung)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Anzeige: Historie (letzter Reinigungsdurchgang)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Wartung: Filterwechsel</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Fehler: Verklemmte Rolle</a>
+              </li>
+            </ul>
+          </div>
+      </nav>
+    
+  </body>
+</html>
