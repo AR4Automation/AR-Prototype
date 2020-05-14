@@ -1,55 +1,149 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>AR4Automation</title>
 
+    <!-- Bootstrap CSS Framework and required frameworks -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+    <!-- AR.js Frameworks and required Frameworks -->
+<!--
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script> 
+-->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <script>
+      window.onload = function() {
+        document
+          .querySelector(".say-hi-button")
+          .addEventListener("click", function() {
+            // here you can change also a-scene or a-entity properties, like
+            // changing your 3D model source, size, position and so on
+            // or you can just open links, trigger actions...
+            alert("Hi there!");
+            //getElementById("demo").innerHTML = "Hello World";
+          });
+      };
+    </script>
+    <style>
+      .buttons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .menus {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        z-index: 12;
+      }
+
+      .say-hi-button {
+        padding: 0.25em;
+        border-radius: 4px;
+        border: none;
+        background: white;
+        color: black;
+        width: 4em;
+        height: 2em;
+      }
+    </style>
+  </head>
+
+  <body style="margin : 0px; overflow: hidden;">
     <!--
-    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-    <script src="js/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@popperjs/core@2" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <div class="buttons">
+      <button class="say-hi-button">SAY HI!</button>
+    </div>
     -->
 
-  </head>
-  <body>
-    
-        <button class="navbar-toggler navbar-dark bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="d-inline-block buttons">
+      <button class="navbar-toggler navbar-light bg-light border border-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
 
-        <nav class="collapse navbar navbar-dark bg-dark" id="navbarToggleExternalContent">
-          <div id="navbarToggleExternalContent">
-            <h5 class="text-white h4">Testszenarien</h5>
-            <span class="text-muted">Startet AR Szenen</span>
-            
-            <hr class="bg-light">
+    <nav class="collapse navbar navbar-dark bg-dark menus" id="navbarToggleExternalContent">
+      <div id="navbarToggleExternalContent">
+        <h5 class="text-white h4">Testszenarien</h5>
+        <span class="text-muted">Startet AR Szenen</span>
+        
+        <hr class="bg-light">
 
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Anzeige: Aktueller Status (Reinigung)</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Anzeige: Historie (letzter Reinigungsdurchgang)</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Wartung: Filterwechsel</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Fehler: Verklemmte Rolle</a>
-              </li>
-            </ul>
-          </div>
-      </nav>
-    
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="display_current_status.html">Anzeige: Aktueller Status (Reinigung)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Anzeige: Historie (letzter Reinigungsdurchgang)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Wartung: Filterwechsel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Fehler: Verklemmte Rolle</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+      <a-assets>
+          <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-marker type='barcode' value='7'>
+        <a-cylinder position="0 0.0 0" radius="0.5" height="0.1" color="#0000FF"></a-cylinder>
+        <!--
+        <a-entity geometry="primitive: box" material="shader: flat; color: red; alphaTest: 0.40"></a-entity>
+        -->
+        <a-entity
+        position="-2 1.2 2"
+        geometry="primitive: plane; height: 1; width: 2"
+        material="color: #0000FF"
+        text="color: white; align: center; font: dejavu;
+              value: Status: Reinigung laeuft"
+        ></a-entity>
+
+      </a-marker>
+
+      <a-marker id="animated-marker" type='barcode' value='6'>
+          <a-entity
+              gltf-model="#animated-asset"
+              scale="2">
+          </a-entity>
+      </a-marker>
+      <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+      <!--
+      <a-entity camera></a-entity>
+      -->
+      <a-camera id="camera" wasd-controls="fly: true" frustum="" camera="" position="" rotation="" look-controls="">
+        <a-entity id="mouse-touch-controller" better-raycaster="objects: .clickable; useCursor: true; controllerType: mouse-touch" visible=""></a-entity>
+      </a-camera>
+
+
+    </a-scene>
+
   </body>
 </html>
