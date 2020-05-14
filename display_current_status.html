@@ -87,7 +87,7 @@
 
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="display_current_status.html">Anzeige: Aktueller Status (Reinigung)</a>
@@ -96,7 +96,7 @@
             <a class="nav-link" href="#">Anzeige: Historie (letzter Reinigungsdurchgang)</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Wartung: Filterwechsel</a>
+            <a class="nav-link" href="maintenance_filter_change.html">Wartung: Filterwechsel</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Fehler: Verklemmte Rolle</a>
@@ -105,22 +105,28 @@
       </div>
     </nav>
 
-    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <!-- Added detectionMode and matrixCodeType for AR.js to recognize barcode markers -->
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
-      <a-assets>
-          <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
-      </a-assets>
-
-      <a-marker type='barcode' value='7'>
-        <a-cylinder position="0 0.0 0" radius="0.5" height="0.1" color="#0000FF"></a-cylinder>
+      <a-marker type='barcode' value='7'> <!-- Barcode Marker Nr. -->
+        <!-- Mark the robot with a cylinder -->
+        <a-cylinder position="0 0.0 0" radius="0.5" height="0.05" color="#67C1FD" opacity="0.7" transparent="true"></a-cylinder>
+        <!-- Messagebox -->
         <a-entity
-        position="-2 1.2 2"
-        geometry="primitive: plane; height: 1; width: 2"
-        material="color: #0000FF"
-        text="color: white; align: center; font: dejavu;
-              value: Status: Reinigung laeuft"
-        ></a-entity>
+          position="-3 1.5 1.5"
+          scale="1.5 1.5 1.5"
+          rotation="-45 0 0"
+          geometry="primitive: plane; height: 1; width: 2"
+          material="color: #67C1FD; opacity: 0.8; transparent: true"
+        >
+          <!-- Text in Messagebox -->
+          <a-entity
+            position="0 0 0.1"
+            scale="3 3 3"
+            text="color: black; align: center; font: kelsonsans; transparent: false;
+            value: Status: Reinigung laeuft"
+          ></a-entity>
+        </a-entity>
       </a-marker>
 
       <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
